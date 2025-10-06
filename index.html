@@ -28,76 +28,162 @@
         
         /* Mobile Android Optimizations */
         @media (max-width: 768px) {
+            /* Navigation fixes */
             .mobile-nav {
                 flex-direction: column;
                 gap: 0.5rem;
+                width: 100%;
+                margin-top: 1rem;
             }
             .mobile-nav button {
                 width: 100%;
                 text-align: center;
                 padding: 0.75rem;
                 font-size: 0.875rem;
+                margin: 0;
             }
+            .mobile-nav-header {
+                flex-direction: column;
+                align-items: stretch;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .mobile-nav-header > div:first-child {
+                align-self: flex-start;
+            }
+            
+            /* Hero section fixes */
             .mobile-hero {
-                padding: 3rem 1rem !important;
+                padding: 2rem 1rem !important;
+                text-align: center;
             }
             .mobile-hero h2 {
-                font-size: 1.875rem !important;
-                line-height: 1.2;
+                font-size: 1.75rem !important;
+                line-height: 1.3;
+                margin-bottom: 1rem;
             }
             .mobile-hero p {
                 font-size: 1rem !important;
+                margin-bottom: 2rem;
             }
             .mobile-buttons {
                 flex-direction: column;
                 gap: 0.75rem;
                 width: 100%;
+                align-items: stretch;
             }
             .mobile-buttons button {
                 width: 100%;
                 padding: 1rem;
                 font-size: 1rem;
+                margin: 0;
             }
+            
+            /* Grid and layout fixes */
             .mobile-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1rem;
             }
-            .mobile-form {
-                padding: 1.5rem !important;
-                margin: 1rem;
-            }
-            .mobile-table {
-                font-size: 0.75rem;
-            }
-            .mobile-table th,
-            .mobile-table td {
-                padding: 0.5rem 0.25rem;
-            }
-            .mobile-modal {
-                margin: 1rem;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
             .mobile-stats {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 0.75rem;
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
             }
             .mobile-stats-text {
                 font-size: 1.5rem !important;
             }
-            .mobile-nav-header {
+            
+            /* Form fixes */
+            .mobile-form {
+                padding: 1.5rem !important;
+                margin: 0.5rem;
+                width: calc(100% - 1rem);
+                box-sizing: border-box;
+            }
+            
+            /* Table fixes */
+            .mobile-table {
+                font-size: 0.75rem;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .mobile-table th,
+            .mobile-table td {
+                padding: 0.5rem 0.25rem;
+                min-width: 80px;
+            }
+            
+            /* Modal fixes */
+            .mobile-modal {
+                margin: 0.5rem;
+                max-height: 95vh;
+                overflow-y: auto;
+                width: calc(100% - 1rem);
+                max-width: none;
+            }
+            
+            /* Dashboard header fixes */
+            .mobile-dashboard-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
                 height: auto;
                 padding: 1rem;
                 gap: 1rem;
             }
-            .mobile-dashboard-header {
+            .mobile-dashboard-header > div:first-child {
+                align-self: flex-start;
+            }
+            .mobile-dashboard-header > div:last-child {
+                align-self: flex-end;
+                display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                height: auto;
-                padding: 1rem;
                 gap: 0.5rem;
+                width: 100%;
+            }
+            .mobile-dashboard-header .mobile-nav {
+                margin-top: 0;
+            }
+            
+            /* Card layout fixes */
+            .mobile-card-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            
+            /* Prevent horizontal scroll */
+            body {
+                overflow-x: hidden;
+            }
+            
+            /* Fix overlapping elements */
+            .max-w-7xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Better spacing for mobile */
+            .py-16 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            .py-20 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            /* Fix text wrapping */
+            h1, h2, h3, h4 {
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+            
+            /* Better button spacing */
+            .space-x-4 > * + * {
+                margin-left: 0 !important;
+            }
+            .space-y-3 > * + * {
+                margin-top: 0.75rem !important;
             }
         }
         
@@ -377,7 +463,7 @@
             <!-- Member Dashboard Content -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <!-- Member Info Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mobile-card-grid">
                     <!-- Saldo Card -->
                     <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-xl card-shadow">
                         <div class="flex items-center justify-between">
@@ -413,7 +499,7 @@
                 </div>
 
                 <!-- Quick Actions -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mobile-card-grid">
                     <!-- Simpanan Section -->
                     <div class="bg-white rounded-xl card-shadow p-6">
                         <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
@@ -518,7 +604,7 @@
             <!-- Dashboard Content -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 mobile-card-grid">
                     <div class="bg-white p-6 rounded-xl card-shadow">
                         <div class="flex items-center">
                             <div class="p-3 bg-blue-100 rounded-full">
@@ -762,7 +848,7 @@
                         🖨️ Cetak PDF
                     </button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mobile-card-grid">
                     <div class="bg-green-50 p-6 rounded-lg">
                         <h5 class="font-semibold text-green-800 mb-4">💰 Simpanan</h5>
                         <div class="space-y-2">
@@ -810,7 +896,7 @@
                 </div>
                 <div class="bg-blue-50 p-6 rounded-lg">
                     <h5 class="font-semibold text-blue-800 mb-4">📊 Ringkasan Keuangan</h5>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mobile-card-grid">
                         <div class="text-center">
                             <p class="text-2xl font-bold text-blue-600" id="reportKasKoperasi">Rp 0</p>
                             <p class="text-sm text-gray-600">Kas Koperasi</p>
@@ -832,7 +918,7 @@
                     </button>
                 </div>
                 <div class="mb-4">
-                    <div class="flex space-x-4">
+                    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Dari Tanggal:</label>
                             <input type="date" id="dateFrom" class="px-3 py-2 border border-gray-300 rounded-lg">
@@ -842,7 +928,7 @@
                             <input type="date" id="dateTo" class="px-3 py-2 border border-gray-300 rounded-lg">
                         </div>
                         <div class="flex items-end">
-                            <button onclick="filterTransactions()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            <button onclick="filterTransactions()" class="w-full md:w-auto bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                                 Filter
                             </button>
                         </div>
@@ -1699,5 +1785,5 @@
             document.getElementById('dateTo').value = today.toISOString().split('T')[0];
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a256f3405eaa09',t:'MTc1OTcyNDE0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a2660fe5170fad',t:'MTc1OTcyNDc2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
