@@ -25,13 +25,114 @@
         .stats-card {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         }
+        
+        /* Mobile Android Optimizations */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .mobile-nav button {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+            .mobile-hero {
+                padding: 3rem 1rem !important;
+            }
+            .mobile-hero h2 {
+                font-size: 1.875rem !important;
+                line-height: 1.2;
+            }
+            .mobile-hero p {
+                font-size: 1rem !important;
+            }
+            .mobile-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+            }
+            .mobile-buttons button {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            .mobile-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            .mobile-form {
+                padding: 1.5rem !important;
+                margin: 1rem;
+            }
+            .mobile-table {
+                font-size: 0.75rem;
+            }
+            .mobile-table th,
+            .mobile-table td {
+                padding: 0.5rem 0.25rem;
+            }
+            .mobile-modal {
+                margin: 1rem;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+            .mobile-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem;
+            }
+            .mobile-stats-text {
+                font-size: 1.5rem !important;
+            }
+            .mobile-nav-header {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            .mobile-dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                height: auto;
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Touch-friendly buttons */
+        @media (max-width: 768px) {
+            button, .btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            input, select, textarea {
+                min-height: 44px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+        
+        /* Prevent horizontal scroll */
+        .overflow-x-auto {
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Better modal positioning on mobile */
+        @media (max-width: 768px) {
+            .fixed.inset-0 {
+                padding: 1rem;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Navigation -->
     <nav class="gradient-bg text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-16 mobile-nav-header">
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
                         <span class="text-red-600 font-bold text-lg">🏛️</span>
@@ -41,7 +142,7 @@
                         <p class="text-red-100 text-xs">Cikahuripan, Klapanunggal, Bogor</p>
                     </div>
                 </div>
-                <div class="flex space-x-4">
+                <div class="flex space-x-4 mobile-nav">
                     <button onclick="showSection('home')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Beranda</button>
                     <button onclick="showSection('register')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Daftar Anggota</button>
                     <button onclick="showSection('member')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Portal Anggota</button>
@@ -54,15 +155,15 @@
     <!-- Home Section -->
     <div id="home" class="section">
         <!-- Hero Section -->
-        <div class="gradient-bg text-white py-20">
+        <div class="gradient-bg text-white py-20 mobile-hero">
             <div class="max-w-7xl mx-auto px-4 text-center">
                 <h2 class="text-4xl font-bold mb-4">Selamat Datang di Koperasi Desa Merah Putih</h2>
                 <p class="text-xl mb-8 text-red-100">Membangun Ekonomi Desa Bersama-sama</p>
-                <div class="flex justify-center space-x-4">
+                <div class="flex justify-center space-x-4 mobile-buttons">
                     <button onclick="showSection('register')" class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
                         Daftar Sekarang
                     </button>
-                    <button onclick="showSection('member')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors mr-4">
+                    <button onclick="showSection('member')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
                         Portal Anggota
                     </button>
                     <button onclick="showSection('admin')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
@@ -75,21 +176,21 @@
         <!-- Stats Section -->
         <div class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mobile-stats">
                     <div class="stats-card p-6 rounded-xl card-shadow text-center">
-                        <div class="text-3xl font-bold text-red-600 mb-2">0</div>
+                        <div class="text-3xl font-bold text-red-600 mb-2 mobile-stats-text">0</div>
                         <div class="text-gray-600">Anggota Aktif</div>
                     </div>
                     <div class="stats-card p-6 rounded-xl card-shadow text-center">
-                        <div class="text-3xl font-bold text-red-600 mb-2">2024</div>
+                        <div class="text-3xl font-bold text-red-600 mb-2 mobile-stats-text">2024</div>
                         <div class="text-gray-600">Tahun Berdiri</div>
                     </div>
                     <div class="stats-card p-6 rounded-xl card-shadow text-center">
-                        <div class="text-3xl font-bold text-red-600 mb-2">24/7</div>
+                        <div class="text-3xl font-bold text-red-600 mb-2 mobile-stats-text">24/7</div>
                         <div class="text-gray-600">Layanan Online</div>
                     </div>
                     <div class="stats-card p-6 rounded-xl card-shadow text-center">
-                        <div class="text-3xl font-bold text-red-600 mb-2">100%</div>
+                        <div class="text-3xl font-bold text-red-600 mb-2 mobile-stats-text">100%</div>
                         <div class="text-gray-600">Terpercaya</div>
                     </div>
                 </div>
@@ -100,7 +201,7 @@
         <div class="py-16 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">
                 <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Layanan Kami</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mobile-grid">
                     <div class="bg-white p-8 rounded-xl card-shadow">
                         <div class="text-4xl mb-4">💰</div>
                         <h4 class="text-xl font-semibold mb-3 text-gray-800">Simpan Pinjam</h4>
@@ -125,14 +226,14 @@
     <div id="register" class="section hidden">
         <div class="min-h-screen py-12 bg-gray-50">
             <div class="max-w-2xl mx-auto px-4">
-                <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="bg-white rounded-xl card-shadow p-8 mobile-form">
                     <div class="text-center mb-8">
                         <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Anggota Baru</h2>
                         <p class="text-gray-600">Bergabunglah dengan Koperasi Desa Merah Putih Cikahuripan</p>
                     </div>
 
                     <form id="registrationForm" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mobile-grid">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
                                 <input type="text" id="fullName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
@@ -143,7 +244,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mobile-grid">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Lahir *</label>
                                 <input type="text" id="birthPlace" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
@@ -159,7 +260,7 @@
                             <textarea id="address" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mobile-grid">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Nomor HP *</label>
                                 <input type="tel" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
@@ -170,7 +271,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mobile-grid">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Pekerjaan *</label>
                                 <select id="occupation" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
@@ -228,7 +329,7 @@
         <!-- Member Login Form -->
         <div id="memberLogin" class="min-h-screen flex items-center justify-center bg-gray-50">
             <div class="max-w-md w-full mx-4">
-                <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="bg-white rounded-xl card-shadow p-8 mobile-form">
                     <div class="text-center mb-8">
                         <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-white text-2xl">👤</span>
@@ -263,7 +364,7 @@
             <!-- Member Header -->
             <div class="bg-white shadow-sm border-b">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center h-16">
+                    <div class="flex justify-between items-center h-16 mobile-dashboard-header">
                         <div>
                             <h1 class="text-xl font-semibold text-gray-800">Portal Anggota</h1>
                             <p class="text-sm text-gray-600" id="memberWelcome">Selamat datang, </p>
@@ -369,7 +470,7 @@
         <!-- Login Form -->
         <div id="adminLogin" class="min-h-screen flex items-center justify-center bg-gray-50">
             <div class="max-w-md w-full mx-4">
-                <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="bg-white rounded-xl card-shadow p-8 mobile-form">
                     <div class="text-center mb-8">
                         <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-white text-2xl">👤</span>
@@ -402,9 +503,9 @@
             <!-- Admin Header -->
             <div class="bg-white shadow-sm border-b">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center h-16">
+                    <div class="flex justify-between items-center h-16 mobile-dashboard-header">
                         <h1 class="text-xl font-semibold text-gray-800">Dashboard Admin</h1>
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-4 mobile-nav">
                             <button onclick="showReports()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                                 📊 Laporan
                             </button>
@@ -470,7 +571,7 @@
                         <h3 class="text-lg font-semibold text-gray-800">Pendaftaran Terbaru</h3>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="w-full">
+                        <table class="w-full mobile-table">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama</th>
@@ -492,7 +593,7 @@
 
     <!-- Savings Form Modal -->
     <div id="savingsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full mobile-modal">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-xl font-semibold text-gray-800">Tambah Simpanan</h3>
                 <button onclick="closeSavingsModal()" class="text-gray-400 hover:text-gray-600">✕</button>
@@ -529,7 +630,7 @@
 
     <!-- Loan Form Modal -->
     <div id="loanModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full mobile-modal">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-xl font-semibold text-gray-800">Ajukan Pinjaman</h3>
                 <button onclick="closeLoanModal()" class="text-gray-400 hover:text-gray-600">✕</button>
@@ -576,7 +677,7 @@
 
     <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in mobile-modal">
             <div class="text-center">
                 <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-green-600 text-2xl">✓</span>
@@ -592,7 +693,7 @@
 
     <!-- Reports Modal -->
     <div id="reportsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-xl p-8 max-w-4xl mx-4 animate-fade-in w-full max-h-screen overflow-y-auto">
+        <div class="bg-white rounded-xl p-8 max-w-4xl mx-4 animate-fade-in w-full max-h-screen overflow-y-auto mobile-modal">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-semibold text-gray-800">📊 Laporan Koperasi</h3>
                 <button onclick="closeReportsModal()" class="text-gray-400 hover:text-gray-600 text-2xl">✕</button>
@@ -1598,5 +1699,5 @@
             document.getElementById('dateTo').value = today.toISOString().split('T')[0];
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a23b8796260fad',t:'MTc1OTcyMzAyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a256f3405eaa09',t:'MTc1OTcyNDE0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
