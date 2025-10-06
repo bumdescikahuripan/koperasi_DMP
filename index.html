@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koperasi Desa Merah Putih Cikahuripan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .stats-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-red-600 font-bold text-lg">🏛️</span>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg">Koperasi Desa Merah Putih</h1>
+                        <p class="text-red-100 text-xs">Cikahuripan, Klapanunggal, Bogor</p>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="showSection('home')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Beranda</button>
+                    <button onclick="showSection('register')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Daftar Anggota</button>
+                    <button onclick="showSection('member')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Portal Anggota</button>
+                    <button onclick="showSection('admin')" class="nav-btn px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">Admin</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="section">
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-4">Selamat Datang di Koperasi Desa Merah Putih</h2>
+                <p class="text-xl mb-8 text-red-100">Membangun Ekonomi Desa Bersama-sama</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="showSection('register')" class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Daftar Sekarang
+                    </button>
+                    <button onclick="showSection('member')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors mr-4">
+                        Portal Anggota
+                    </button>
+                    <button onclick="showSection('admin')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
+                        Login Admin
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="stats-card p-6 rounded-xl card-shadow text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-2">0</div>
+                        <div class="text-gray-600">Anggota Aktif</div>
+                    </div>
+                    <div class="stats-card p-6 rounded-xl card-shadow text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-2">2024</div>
+                        <div class="text-gray-600">Tahun Berdiri</div>
+                    </div>
+                    <div class="stats-card p-6 rounded-xl card-shadow text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-2">24/7</div>
+                        <div class="text-gray-600">Layanan Online</div>
+                    </div>
+                    <div class="stats-card p-6 rounded-xl card-shadow text-center">
+                        <div class="text-3xl font-bold text-red-600 mb-2">100%</div>
+                        <div class="text-gray-600">Terpercaya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h3 class="text-3xl font-bold text-center mb-12 text-gray-800">Layanan Kami</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+                        <div class="text-4xl mb-4">💰</div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Simpan Pinjam</h4>
+                        <p class="text-gray-600">Layanan simpan pinjam dengan bunga kompetitif untuk kebutuhan anggota</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+                        <div class="text-4xl mb-4">🏪</div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Toko Koperasi</h4>
+                        <p class="text-gray-600">Menyediakan kebutuhan sehari-hari dengan harga terjangkau</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl card-shadow">
+                        <div class="text-4xl mb-4">📱</div>
+                        <h4 class="text-xl font-semibold mb-3 text-gray-800">Layanan Digital</h4>
+                        <p class="text-gray-600">Pendaftaran online dan layanan digital untuk kemudahan anggota</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Section -->
+    <div id="register" class="section hidden">
+        <div class="min-h-screen py-12 bg-gray-50">
+            <div class="max-w-2xl mx-auto px-4">
+                <div class="bg-white rounded-xl card-shadow p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Pendaftaran Anggota Baru</h2>
+                        <p class="text-gray-600">Bergabunglah dengan Koperasi Desa Merah Putih Cikahuripan</p>
+                    </div>
+
+                    <form id="registrationForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                                <input type="text" id="fullName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">NIK *</label>
+                                <input type="text" id="nik" required maxlength="16" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tempat Lahir *</label>
+                                <input type="text" id="birthPlace" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Lahir *</label>
+                                <input type="date" id="birthDate" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Alamat Lengkap *</label>
+                            <textarea id="address" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"></textarea>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nomor HP *</label>
+                                <input type="tel" id="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Pekerjaan *</label>
+                                <select id="occupation" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih Pekerjaan</option>
+                                    <option value="petani">Petani</option>
+                                    <option value="pedagang">Pedagang</option>
+                                    <option value="buruh">Buruh</option>
+                                    <option value="pns">PNS</option>
+                                    <option value="swasta">Karyawan Swasta</option>
+                                    <option value="wiraswasta">Wiraswasta</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Penghasilan per Bulan</label>
+                                <select id="income" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="">Pilih Range Penghasilan</option>
+                                    <option value="< 1 juta">< Rp 1.000.000</option>
+                                    <option value="1-3 juta">Rp 1.000.000 - 3.000.000</option>
+                                    <option value="3-5 juta">Rp 3.000.000 - 5.000.000</option>
+                                    <option value="> 5 juta">> Rp 5.000.000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Simpanan Pokok *</label>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <p class="text-sm text-gray-600 mb-2">Simpanan pokok sebesar <strong>Rp 100.000</strong> (dibayar sekali saat pendaftaran)</p>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="agreeDeposit" required class="mr-2">
+                                    <label for="agreeDeposit" class="text-sm text-gray-700">Saya setuju untuk membayar simpanan pokok</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="agreeTerms" required class="mr-2">
+                                <label for="agreeTerms" class="text-sm text-gray-700">Saya setuju dengan syarat dan ketentuan koperasi</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            Daftar Sekarang
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Member Portal Section -->
+    <div id="member" class="section hidden">
+        <!-- Member Login Form -->
+        <div id="memberLogin" class="min-h-screen flex items-center justify-center bg-gray-50">
+            <div class="max-w-md w-full mx-4">
+                <div class="bg-white rounded-xl card-shadow p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl">👤</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">Login Anggota</h2>
+                        <p class="text-gray-600">Masuk ke portal anggota</p>
+                    </div>
+
+                    <form id="memberLoginForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nomor Anggota / NIK</label>
+                            <input type="text" id="memberNumber" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="Masukkan nomor anggota atau NIK">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                            <input type="password" id="memberPassword" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent" placeholder="Masukkan password">
+                        </div>
+                        <button type="submit" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            Masuk
+                        </button>
+                    </form>
+
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">Belum punya akun? <button onclick="showSection('register')" class="text-red-600 hover:text-red-800 font-medium">Daftar di sini</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Member Dashboard -->
+        <div id="memberDashboard" class="hidden">
+            <!-- Member Header -->
+            <div class="bg-white shadow-sm border-b">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-16">
+                        <div>
+                            <h1 class="text-xl font-semibold text-gray-800">Portal Anggota</h1>
+                            <p class="text-sm text-gray-600" id="memberWelcome">Selamat datang, </p>
+                        </div>
+                        <button onclick="memberLogout()" class="text-red-600 hover:text-red-800 font-medium">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member Dashboard Content -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <!-- Member Info Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Saldo Card -->
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-blue-100 text-sm">Saldo Anggota</p>
+                                <p class="text-2xl font-bold" id="memberBalance">Rp 0</p>
+                            </div>
+                            <div class="text-3xl opacity-80">💰</div>
+                        </div>
+                    </div>
+
+                    <!-- Simpanan Card -->
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-green-100 text-sm">Total Simpanan</p>
+                                <p class="text-2xl font-bold" id="memberSavings">Rp 0</p>
+                            </div>
+                            <div class="text-3xl opacity-80">🏦</div>
+                        </div>
+                    </div>
+
+                    <!-- Pinjaman Card -->
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-orange-100 text-sm">Sisa Pinjaman</p>
+                                <p class="text-2xl font-bold" id="memberLoan">Rp 0</p>
+                            </div>
+                            <div class="text-3xl opacity-80">📋</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Simpanan Section -->
+                    <div class="bg-white rounded-xl card-shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <span class="text-green-600 mr-2">🏦</span>
+                            Kelola Simpanan
+                        </h3>
+                        <div class="space-y-3">
+                            <button onclick="showSavingsForm()" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                                Tambah Simpanan
+                            </button>
+                            <button onclick="showSavingsHistory()" class="w-full border border-green-500 text-green-600 py-2 px-4 rounded-lg hover:bg-green-50 transition-colors">
+                                Riwayat Simpanan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pinjaman Section -->
+                    <div class="bg-white rounded-xl card-shadow p-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <span class="text-orange-600 mr-2">📋</span>
+                            Kelola Pinjaman
+                        </h3>
+                        <div class="space-y-3">
+                            <button onclick="showLoanForm()" class="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors">
+                                Ajukan Pinjaman
+                            </button>
+                            <button onclick="showLoanHistory()" class="w-full border border-orange-500 text-orange-600 py-2 px-4 rounded-lg hover:bg-orange-50 transition-colors">
+                                Riwayat Pinjaman
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="bg-white rounded-xl card-shadow">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-800">Riwayat Transaksi Terbaru</h3>
+                    </div>
+                    <div class="p-6">
+                        <div id="transactionHistory" class="space-y-4">
+                            <div class="text-center text-gray-500 py-8">
+                                <p>Belum ada transaksi</p>
+                                <p class="text-sm">Mulai dengan menambah simpanan atau mengajukan pinjaman</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Section -->
+    <div id="admin" class="section hidden">
+        <!-- Login Form -->
+        <div id="adminLogin" class="min-h-screen flex items-center justify-center bg-gray-50">
+            <div class="max-w-md w-full mx-4">
+                <div class="bg-white rounded-xl card-shadow p-8">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white text-2xl">👤</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800">Login Admin</h2>
+                        <p class="text-gray-600">Masuk ke dashboard admin</p>
+                    </div>
+
+                    <form id="adminLoginForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                            <input type="text" id="adminUsername" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                            <input type="password" id="adminPassword" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                        </div>
+                        <button type="submit" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            Masuk
+                        </button>
+                    </form>
+
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-800"><strong>Demo Login:</strong></p>
+                        <p class="text-sm text-blue-700">Username: admin</p>
+                        <p class="text-sm text-blue-700">Password: admin123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="hidden">
+            <!-- Admin Header -->
+            <div class="bg-white shadow-sm border-b">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-16">
+                        <h1 class="text-xl font-semibold text-gray-800">Dashboard Admin</h1>
+                        <button onclick="logout()" class="text-red-600 hover:text-red-800 font-medium">Logout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-blue-100 rounded-full">
+                                <span class="text-blue-600 text-xl">👥</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Anggota</p>
+                                <p class="text-2xl font-bold text-gray-800" id="totalMembers">152</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-green-100 rounded-full">
+                                <span class="text-green-600 text-xl">📝</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Pendaftar Baru</p>
+                                <p class="text-2xl font-bold text-gray-800" id="newRegistrations">5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-yellow-100 rounded-full">
+                                <span class="text-yellow-600 text-xl">⏳</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Menunggu Verifikasi</p>
+                                <p class="text-2xl font-bold text-gray-800" id="pendingVerification">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow">
+                        <div class="flex items-center">
+                            <div class="p-3 bg-red-100 rounded-full">
+                                <span class="text-red-600 text-xl">💰</span>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm text-gray-600">Total Simpanan</p>
+                                <p class="text-2xl font-bold text-gray-800">Rp 0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Registrations -->
+                <div class="bg-white rounded-xl card-shadow">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-800">Pendaftaran Terbaru</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nama</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">NIK</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal Daftar</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registrationTable" class="divide-y divide-gray-200">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Savings Form Modal -->
+    <div id="savingsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Tambah Simpanan</h3>
+                <button onclick="closeSavingsModal()" class="text-gray-400 hover:text-gray-600">✕</button>
+            </div>
+            <form id="savingsForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Simpanan</label>
+                    <select id="savingsType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        <option value="">Pilih Jenis Simpanan</option>
+                        <option value="pokok">Simpanan Pokok</option>
+                        <option value="wajib">Simpanan Wajib</option>
+                        <option value="sukarela">Simpanan Sukarela</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah (Rp)</label>
+                    <input type="number" id="savingsAmount" required min="10000" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan jumlah">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Keterangan</label>
+                    <textarea id="savingsNote" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Keterangan tambahan (opsional)"></textarea>
+                </div>
+                <div class="flex space-x-3 pt-4">
+                    <button type="button" onclick="closeSavingsModal()" class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" class="flex-1 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
+                        Simpan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loan Form Modal -->
+    <div id="loanModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Ajukan Pinjaman</h3>
+                <button onclick="closeLoanModal()" class="text-gray-400 hover:text-gray-600">✕</button>
+            </div>
+            <form id="loanForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jenis Pinjaman</label>
+                    <select id="loanType" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        <option value="">Pilih Jenis Pinjaman</option>
+                        <option value="konsumtif">Pinjaman Konsumtif</option>
+                        <option value="produktif">Pinjaman Produktif</option>
+                        <option value="darurat">Pinjaman Darurat</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Pinjaman (Rp)</label>
+                    <input type="number" id="loanAmount" required min="100000" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Masukkan jumlah">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Jangka Waktu (Bulan)</label>
+                    <select id="loanTerm" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                        <option value="">Pilih Jangka Waktu</option>
+                        <option value="6">6 Bulan</option>
+                        <option value="12">12 Bulan</option>
+                        <option value="24">24 Bulan</option>
+                        <option value="36">36 Bulan</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tujuan Pinjaman</label>
+                    <textarea id="loanPurpose" required rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Jelaskan tujuan pinjaman"></textarea>
+                </div>
+                <div class="flex space-x-3 pt-4">
+                    <button type="button" onclick="closeLoanModal()" class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                        Batal
+                    </button>
+                    <button type="submit" class="flex-1 bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors">
+                        Ajukan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md mx-4 animate-fade-in">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-green-600 text-2xl">✓</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Pendaftaran Berhasil!</h3>
+                <p class="text-gray-600 mb-6">Terima kasih telah mendaftar. Data Anda akan segera diverifikasi oleh admin.</p>
+                <button onclick="closeModal()" class="gradient-bg text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Member data structure
+        let currentMember = null;
+        let memberData = {
+            balance: 0,
+            savings: 0,
+            loan: 0,
+            transactions: []
+        };
+
+        // Empty data - ready to use from scratch
+        let registrations = [];
+
+        // Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.remove('hidden');
+            
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-red-700');
+            });
+            event.target.classList.add('bg-red-700');
+        }
+
+        // Registration form
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('fullName').value,
+                nik: document.getElementById('nik').value,
+                birthPlace: document.getElementById('birthPlace').value,
+                birthDate: document.getElementById('birthDate').value,
+                address: document.getElementById('address').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                occupation: document.getElementById('occupation').value,
+                income: document.getElementById('income').value,
+                date: new Date().toISOString().split('T')[0],
+                status: 'pending'
+            };
+
+            // Add to registrations array
+            registrations.unshift({
+                id: registrations.length + 1,
+                name: formData.name,
+                nik: formData.nik,
+                date: formData.date,
+                status: formData.status,
+                phone: formData.phone,
+                address: formData.address
+            });
+
+            // Update stats
+            updateStats();
+            updateRegistrationTable();
+
+            // Show success modal
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Member login
+        document.getElementById('memberLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const memberNumber = document.getElementById('memberNumber').value;
+            const password = document.getElementById('memberPassword').value;
+            
+            // Simple validation - in real app, this would be server-side
+            if (memberNumber && password) {
+                currentMember = {
+                    number: memberNumber,
+                    name: 'Anggota ' + memberNumber
+                };
+                
+                // Initialize member data
+                memberData = {
+                    balance: 0,
+                    savings: 0,
+                    loan: 0,
+                    transactions: []
+                };
+                
+                document.getElementById('memberLogin').classList.add('hidden');
+                document.getElementById('memberDashboard').classList.remove('hidden');
+                document.getElementById('memberWelcome').textContent = 'Selamat datang, ' + currentMember.name;
+                updateMemberDisplay();
+            } else {
+                alert('Mohon isi semua field!');
+            }
+        });
+
+        // Admin login
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('adminLogin').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                updateStats();
+                updateRegistrationTable();
+            } else {
+                alert('Username atau password salah!');
+            }
+        });
+
+        // Update statistics
+        function updateStats() {
+            const totalMembers = registrations.filter(r => r.status === 'approved').length;
+            const newRegistrations = registrations.length;
+            const pendingVerification = registrations.filter(r => r.status === 'pending').length;
+            
+            document.getElementById('totalMembers').textContent = totalMembers;
+            document.getElementById('newRegistrations').textContent = newRegistrations;
+            document.getElementById('pendingVerification').textContent = pendingVerification;
+        }
+
+        // Update registration table
+        function updateRegistrationTable() {
+            const tableBody = document.getElementById('registrationTable');
+            tableBody.innerHTML = '';
+            
+            if (registrations.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="5" class="px-6 py-8 text-center text-gray-500">
+                        <div class="text-4xl mb-2">📝</div>
+                        <p>Belum ada pendaftaran</p>
+                        <p class="text-sm">Data pendaftaran akan muncul di sini</p>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+                return;
+            }
+            
+            registrations.slice(0, 10).forEach(registration => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${registration.name}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${registration.nik}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${registration.date}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${
+                            registration.status === 'approved' 
+                                ? 'bg-green-100 text-green-800' 
+                                : 'bg-yellow-100 text-yellow-800'
+                        }">
+                            ${registration.status === 'approved' ? 'Disetujui' : 'Menunggu'}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        ${registration.status === 'pending' 
+                            ? `<button onclick="approveRegistration(${registration.id})" class="text-green-600 hover:text-green-900 mr-2">Setujui</button>
+                               <button onclick="rejectRegistration(${registration.id})" class="text-red-600 hover:text-red-900">Tolak</button>`
+                            : '<span class="text-gray-400">Selesai</span>'
+                        }
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Approve registration
+        function approveRegistration(id) {
+            const registration = registrations.find(r => r.id === id);
+            if (registration) {
+                registration.status = 'approved';
+                updateStats();
+                updateRegistrationTable();
+                alert(`Pendaftaran ${registration.name} telah disetujui!`);
+            }
+        }
+
+        // Reject registration
+        function rejectRegistration(id) {
+            if (confirm('Apakah Anda yakin ingin menolak pendaftaran ini?')) {
+                registrations = registrations.filter(r => r.id !== id);
+                updateStats();
+                updateRegistrationTable();
+                alert('Pendaftaran telah ditolak!');
+            }
+        }
+
+        // Logout
+        function logout() {
+            document.getElementById('adminDashboard').classList.add('hidden');
+            document.getElementById('adminLogin').classList.remove('hidden');
+            document.getElementById('adminLoginForm').reset();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        // Member functions
+        function updateMemberDisplay() {
+            document.getElementById('memberBalance').textContent = formatCurrency(memberData.balance);
+            document.getElementById('memberSavings').textContent = formatCurrency(memberData.savings);
+            document.getElementById('memberLoan').textContent = formatCurrency(memberData.loan);
+            updateTransactionHistory();
+        }
+
+        function formatCurrency(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        function updateTransactionHistory() {
+            const historyDiv = document.getElementById('transactionHistory');
+            
+            if (memberData.transactions.length === 0) {
+                historyDiv.innerHTML = `
+                    <div class="text-center text-gray-500 py-8">
+                        <p>Belum ada transaksi</p>
+                        <p class="text-sm">Mulai dengan menambah simpanan atau mengajukan pinjaman</p>
+                    </div>
+                `;
+                return;
+            }
+
+            historyDiv.innerHTML = memberData.transactions.slice(0, 5).map(transaction => `
+                <div class="flex justify-between items-center p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
+                            transaction.type === 'savings' ? 'bg-green-100' : 'bg-orange-100'
+                        }">
+                            <span class="text-lg">${transaction.type === 'savings' ? '🏦' : '📋'}</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-gray-800">${transaction.description}</p>
+                            <p class="text-sm text-gray-500">${transaction.date}</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-semibold ${transaction.type === 'savings' ? 'text-green-600' : 'text-orange-600'}">
+                            ${transaction.type === 'savings' ? '+' : ''}${formatCurrency(transaction.amount)}
+                        </p>
+                        <p class="text-xs text-gray-500">${transaction.status}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function showSavingsForm() {
+            document.getElementById('savingsModal').classList.remove('hidden');
+            document.getElementById('savingsModal').classList.add('flex');
+        }
+
+        function closeSavingsModal() {
+            document.getElementById('savingsModal').classList.add('hidden');
+            document.getElementById('savingsModal').classList.remove('flex');
+            document.getElementById('savingsForm').reset();
+        }
+
+        function showLoanForm() {
+            document.getElementById('loanModal').classList.remove('hidden');
+            document.getElementById('loanModal').classList.add('flex');
+        }
+
+        function closeLoanModal() {
+            document.getElementById('loanModal').classList.add('hidden');
+            document.getElementById('loanModal').classList.remove('flex');
+            document.getElementById('loanForm').reset();
+        }
+
+        function showSavingsHistory() {
+            const savingsTransactions = memberData.transactions.filter(t => t.type === 'savings');
+            if (savingsTransactions.length === 0) {
+                alert('Belum ada riwayat simpanan');
+                return;
+            }
+            
+            let historyText = 'Riwayat Simpanan:\n\n';
+            savingsTransactions.forEach(t => {
+                historyText += `${t.date} - ${t.description}: ${formatCurrency(t.amount)} (${t.status})\n`;
+            });
+            alert(historyText);
+        }
+
+        function showLoanHistory() {
+            const loanTransactions = memberData.transactions.filter(t => t.type === 'loan');
+            if (loanTransactions.length === 0) {
+                alert('Belum ada riwayat pinjaman');
+                return;
+            }
+            
+            let historyText = 'Riwayat Pinjaman:\n\n';
+            loanTransactions.forEach(t => {
+                historyText += `${t.date} - ${t.description}: ${formatCurrency(t.amount)} (${t.status})\n`;
+            });
+            alert(historyText);
+        }
+
+        // Savings form submission
+        document.getElementById('savingsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const type = document.getElementById('savingsType').value;
+            const amount = parseInt(document.getElementById('savingsAmount').value);
+            const note = document.getElementById('savingsNote').value;
+            
+            const transaction = {
+                id: Date.now(),
+                type: 'savings',
+                description: `Simpanan ${type.charAt(0).toUpperCase() + type.slice(1)}${note ? ' - ' + note : ''}`,
+                amount: amount,
+                date: new Date().toLocaleDateString('id-ID'),
+                status: 'Berhasil'
+            };
+            
+            memberData.transactions.unshift(transaction);
+            memberData.savings += amount;
+            memberData.balance += amount;
+            
+            updateMemberDisplay();
+            closeSavingsModal();
+            
+            alert(`Simpanan sebesar ${formatCurrency(amount)} berhasil ditambahkan!`);
+        });
+
+        // Loan form submission
+        document.getElementById('loanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const type = document.getElementById('loanType').value;
+            const amount = parseInt(document.getElementById('loanAmount').value);
+            const term = document.getElementById('loanTerm').value;
+            const purpose = document.getElementById('loanPurpose').value;
+            
+            const transaction = {
+                id: Date.now(),
+                type: 'loan',
+                description: `Pinjaman ${type.charAt(0).toUpperCase() + type.slice(1)} - ${term} bulan`,
+                amount: amount,
+                date: new Date().toLocaleDateString('id-ID'),
+                status: 'Menunggu Persetujuan'
+            };
+            
+            memberData.transactions.unshift(transaction);
+            
+            updateMemberDisplay();
+            closeLoanModal();
+            
+            alert(`Pengajuan pinjaman sebesar ${formatCurrency(amount)} telah disubmit dan menunggu persetujuan admin.`);
+        });
+
+        // Member logout
+        function memberLogout() {
+            document.getElementById('memberDashboard').classList.add('hidden');
+            document.getElementById('memberLogin').classList.remove('hidden');
+            document.getElementById('memberLoginForm').reset();
+            currentMember = null;
+            memberData = { balance: 0, savings: 0, loan: 0, transactions: [] };
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            updateRegistrationTable();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a21d7eb7250fad',t:'MTc1OTcyMTc5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
